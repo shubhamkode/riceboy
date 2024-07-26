@@ -1,0 +1,25 @@
+{
+  "snap": {
+    "common": ["firefox"],
+    "classic": ["code"]
+  },
+  "apt": [
+    "stow",
+    "git",
+    "curl",
+    "dex",
+    "neofetch",
+    "fish",
+    "lxappearance",
+    "kitty",
+    "i3-wm",
+    "lf",
+    "i3lock",
+    "i3status",
+    "bumblee-status",
+    "feh",
+    "rofi",
+    "python3-i3ipc",
+    "picom"
+  ]
+}
