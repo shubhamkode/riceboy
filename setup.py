@@ -1,11 +1,12 @@
 #! /usr/bin/python3
 
 import src.utils as utils
-import shutil,sys
+import shutil,sys,os
 
 PACKAGES = "./packages.json"
 REPO = "https://github.com/shubhamkode/.dotfiles.git"
 will_update_system: bool = False
+HOME_DIR = os.path.expanduser("~")
 
 
 def update_system():
@@ -20,12 +21,14 @@ def install():
 
 
 def stow_config():
-    utils.sys_call(["stow","~/.dotfiles", "-t", "~","--adopt"])
+    os.chdir(HOME_DIR + "/.dotfiles")
+    utils.sys_call(["stow",".","--adopt"])
     # utils.sys_call(["git","reset","--hard"])
 
 
 def clone_repository():
-    utils.sys_call(["git","clone",REPO,"~/.dotfiles"])
+    os.chdir(HOME_DIR)
+    utils.sys_call(["git","clone",REPO,])
 
 def set_system():
     utils.run("\tCloning Repository")(clone_repository)
